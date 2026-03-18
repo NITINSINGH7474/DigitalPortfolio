@@ -1,0 +1,10 @@
+Place your certification photos in this folder.
+
+Please name them exactly as follows to match the code:
+1. oracle-ai.png
+2. devops.png
+3. network.png
+4. fullstack.png
+5. os.png
+
+Best dimensions: 16:10 ratio or standard certificate shapes.

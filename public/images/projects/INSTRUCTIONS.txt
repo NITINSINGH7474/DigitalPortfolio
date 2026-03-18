@@ -1,0 +1,8 @@
+Place your project screenshot photos in this folder.
+
+Please name them exactly as follows to match the code:
+1. scholarship.png (For the Scholarship Application project)
+2. bookie.png (For the Bookie Boy project)
+3. grocery.png (For the Grocery project)
+
+Best dimensions: 16:9 ratio (e.g., 1280x720 pixels).

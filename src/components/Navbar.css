@@ -1,0 +1,181 @@
+/* ============ Navbar (Glass Pill Style) ============ */
+.navbar {
+  position: fixed;
+  top: 25px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+/* Floating Pill Container */
+.navbar-inner {
+  width: max-content;
+  max-width: 95%;
+  height: 60px;
+  padding: 0 16px 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: var(--navbar-bg);
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.3);
+  transition: all 0.4s ease;
+}
+
+/* Logo */
+.navbar-logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo span {
+  color: var(--accent);
+}
+
+/* Links */
+.navbar-links {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar-links li {
+  position: relative;
+}
+
+.navbar-links a {
+  position: relative;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 30px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+/* Hover & Active pill background */
+.navbar-links a:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.navbar-links a.active {
+  color: #fff;
+  background: var(--accent-gradient);
+  box-shadow: var(--shadow-accent);
+}
+
+/* Right side tools */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-left: 1px solid var(--border);
+  padding-left: 12px;
+}
+
+/* Theme button */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--bg-card-hover);
+  transform: rotate(15deg) scale(1.1);
+}
+
+/* Hamburger */
+.navbar-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.navbar-hamburger span {
+  width: 18px;
+  height: 2px;
+  background: var(--text-primary);
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .navbar-links {
+    display: none;
+  }
+  
+  .navbar-hamburger {
+    display: flex;
+  }
+
+  .navbar-inner {
+    justify-content: space-between;
+    width: 90%;
+    padding: 0 20px;
+  }
+
+  /* Full Screen Mobile Menu */
+  .navbar-links.open {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--bg-primary);
+    z-index: -1;
+    padding: 0;
+    gap: 20px;
+  }
+  
+  .navbar-links.open a {
+    font-size: 1.5rem;
+    padding: 12px 30px;
+  }
+
+  .navbar-hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .navbar-hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .navbar-hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}

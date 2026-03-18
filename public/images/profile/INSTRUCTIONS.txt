@@ -1,0 +1,4 @@
+Place your profile photo in this folder.
+Please name it exactly: profile.png
+
+Best dimensions: Square (e.g., 500x500 pixels).

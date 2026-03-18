@@ -1,0 +1,113 @@
+/* ============ Custom Cursor ============ */
+
+.custom-cursor-dot,
+.custom-cursor-ring {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+}
+
+/* Dot — small, solid, follows instantly */
+.custom-cursor-dot {
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  margin-top: -4px;
+  border-radius: 50%;
+  background: var(--accent);
+  transition: width 0.2s, height 0.2s, margin 0.2s, background 0.3s;
+}
+
+/* Ring — larger, trails behind */
+.custom-cursor-ring {
+  width: 36px;
+  height: 36px;
+  margin-left: -18px;
+  margin-top: -18px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  opacity: 0.5;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              margin 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s,
+              background 0.3s,
+              border-color 0.3s;
+}
+
+/* Hover state — ring expands */
+.custom-cursor-ring.cursor-hover {
+  width: 56px;
+  height: 56px;
+  margin-left: -28px;
+  margin-top: -28px;
+  background: var(--accent-glow);
+  opacity: 0.7;
+  border-color: var(--accent);
+}
+
+/* Dark theme — Gojo Satoru Infinity Cursor */
+[data-theme="dark"] .custom-cursor-dot {
+  background: #4cc9f0;
+  box-shadow: 0 0 8px rgba(76, 201, 240, 0.8),
+              0 0 20px rgba(76, 201, 240, 0.4),
+              0 0 40px rgba(76, 201, 240, 0.15);
+}
+
+[data-theme="dark"] .custom-cursor-ring {
+  border: 2px dashed rgba(76, 201, 240, 0.6);
+  box-shadow: 0 0 14px rgba(76, 201, 240, 0.3),
+              0 0 28px rgba(177, 74, 237, 0.12),
+              inset 0 0 10px rgba(76, 201, 240, 0.06);
+  animation: infinitySpin 4s linear infinite;
+}
+
+[data-theme="dark"] .custom-cursor-ring.cursor-hover {
+  border: 2px solid rgba(76, 201, 240, 0.8);
+  box-shadow: 0 0 20px rgba(76, 201, 240, 0.5),
+              0 0 40px rgba(177, 74, 237, 0.25),
+              0 0 60px rgba(76, 201, 240, 0.1),
+              inset 0 0 16px rgba(76, 201, 240, 0.1);
+  background: radial-gradient(circle, rgba(76, 201, 240, 0.12) 0%, rgba(177, 74, 237, 0.06) 100%);
+  animation: infinitySpin 2s linear infinite, infinityPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes infinitySpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes infinityPulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(76, 201, 240, 0.5),
+                0 0 40px rgba(177, 74, 237, 0.25);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(76, 201, 240, 0.7),
+                0 0 60px rgba(177, 74, 237, 0.4),
+                0 0 80px rgba(76, 201, 240, 0.15);
+  }
+}
+
+/* Light vintage theme */
+[data-theme="light"] .custom-cursor-dot {
+  background: #b8632e;
+}
+
+[data-theme="light"] .custom-cursor-ring {
+  border-color: #b8632e;
+  box-shadow: 0 0 8px rgba(184, 99, 46, 0.15);
+}
+
+[data-theme="light"] .custom-cursor-ring.cursor-hover {
+  background: rgba(184, 99, 46, 0.1);
+  box-shadow: 0 0 16px rgba(184, 99, 46, 0.25);
+}
+
+/* Hide on touch / small screens */
+@media (pointer: coarse) {
+  .custom-cursor-dot,
+  .custom-cursor-ring {
+    display: none !important;
+  }
+}

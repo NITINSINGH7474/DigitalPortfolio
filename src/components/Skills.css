@@ -1,0 +1,333 @@
+/* ============ Unified Modern Skills Setup ============ */
+.skills-custom-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.skills-bottom-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+@media (max-width: 900px) {
+  .skills-bottom-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skills-section-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+
+.skills-section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 16px;
+}
+
+.skills-section-icon {
+  font-size: 1.6rem;
+  color: var(--accent);
+  filter: drop-shadow(0 0 8px var(--accent));
+}
+
+.skills-section-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+
+/* ============ Layout 1: Languages (Flowing Pills) ============ */
+.languages-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.language-pill {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px 20px;
+  min-width: 140px;
+  flex: 1;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.language-pill:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+.language-icon {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.language-name {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+.language-level-bar {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.language-level-fill {
+  height: 100%;
+  background: var(--accent-gradient);
+  border-radius: 2px;
+  transition: width 1.5s cubic-bezier(0.1, 0.7, 0.1, 1);
+}
+
+
+/* ============ Layout 2: Frameworks (Grid of Glass Cards with Rings) ============ */
+.frameworks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.framework-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  padding: 16px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: scale(0.95);
+  animation: scaleUp 0.6s ease forwards;
+}
+
+[data-theme='light'] .framework-card {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.framework-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent);
+}
+
+.framework-icon-wrapper {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  background: var(--surface);
+  border-radius: 12px;
+}
+
+.framework-card:hover .framework-icon-wrapper {
+  color: var(--accent);
+  background: var(--accent-glow);
+}
+
+.framework-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  flex: 1;
+  margin: 0 12px;
+}
+
+.framework-progress {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring-circle {
+  transition: stroke-dashoffset 1.5s ease-out;
+}
+
+.progress-text {
+  position: absolute;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+
+/* ============ Layout 3: Tools (Floating Nodes) ============ */
+.tools-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 16px;
+}
+
+.tool-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px 10px;
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px dashed var(--border);
+  transition: all 0.3s;
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.tool-node:hover {
+  border-style: solid;
+  border-color: var(--accent);
+  transform: translateY(-5px);
+  background: var(--accent-glow);
+}
+
+.tool-node-icon {
+  font-size: 2.2rem;
+  color: var(--text-secondary);
+  transition: color 0.3s;
+}
+
+.tool-node:hover .tool-node-icon {
+  color: var(--accent);
+}
+
+.tool-node-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+
+/* ============ Layout 4: Soft Skills (Animated Minimal List) ============ */
+.soft-skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.soft-skill-item {
+  opacity: 0;
+  transform: translateX(20px);
+  animation: slideInRight 0.6s ease forwards;
+}
+
+.soft-skill-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.soft-skill-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.soft-skill-icon {
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.soft-skill-name {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.soft-skill-percent {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.soft-skill-track {
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.soft-skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent) 0%, #ff8a00 100%);
+  border-radius: 3px;
+  transition: width 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+
+/* ============ Animations ============ */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
